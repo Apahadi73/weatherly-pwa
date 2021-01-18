@@ -35,6 +35,7 @@ const App = () => {
         onChange={(e) => setQuery(e.target.value)}
         onKeyPress={search}
       />
+
       {/* Show instruction for the first time when the page loads */}
       {firstTimeLoad && (
         <div className="card">

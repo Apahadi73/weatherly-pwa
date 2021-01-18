@@ -33,14 +33,24 @@ body,
   background: rgba(250, 250, 250, 0.85);
 }
 
-.city,
+.city {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px 5rem;
+  border-radius: 20px;
+  background: rgba(250, 250, 250, 0.85);
+  box-shadow: 10px 10px 5px 0px rgba(15, 15, 15, 0.404);
+}
+
 .card {
   margin: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 1rem;
+  padding: 30px 5rem;
   border-radius: 20px;
   background: rgba(250, 250, 250, 0.85);
   box-shadow: 10px 10px 5px 0px rgba(15, 15, 15, 0.404);
