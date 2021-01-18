@@ -1,22 +1,21 @@
 const CACHE_NAME = "version-1";
 const urlsToCache = ["index.html", "offline.html"];
 
-const self = this; //this represents the service worker
+//this represents the service worker
+const self = this;
 
-// Install a service worker
+// Installs A service worker
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches
-      .open(CACHE_NAME)
-      .then((cache) => {
-        console.log("Cache opened");
-        return cache.addAll(urlsToCache);
-      })
-      .catch((err) => console.log("Failure:", err))
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log("Opened cache");
+
+      return cache.addAll(urlsToCache);
+    })
   );
 });
 
-// Listen for the request
+// Listen for requests
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     //   matches all the request the browser tries to fetch
@@ -28,25 +27,22 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
-// Activaye the service worker
+// Activates the service worker
+
 self.addEventListener("activate", (event) => {
-  const cacheWhiteList = [];
-  //   saves our desired cash to the whitelist
-  cacheWhiteList.push(CACHE_NAME);
-  //   waits until it get caches
+  const cacheWhitelist = [];
+  cacheWhitelist.push(CACHE_NAME);
+
   event.waitUntil(
-    caches
-      .keys()
-      .then((cacheNames) => {
-        Promise.all(
-          cacheNames.map((cacheName) => {
-            //   delets all non-white listed caches
-            if (!cacheWhiteList.includes(cacheName)) {
-              return caches.delete(cacheName);
-            }
-          })
-        );
-      })
-      .catch((err) => console.log("Failure:", err))
+    caches.keys().then((cacheNames) =>
+      Promise.all(
+        cacheNames.map((cacheName) => {
+          if (!cacheWhitelist.includes(cacheName)) {
+            return caches.delete(cacheName);
+          }
+          return "";
+        })
+      )
+    )
   );
 });

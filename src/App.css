@@ -11,7 +11,7 @@ body,
 
 .main-container {
   background-image: linear-gradient(rgba(0, 121, 101, 0.3), rgb(0, 175, 145)),
-    url("/src/img/app-web-bg.jpg");
+    url("/src/img/bg.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -57,16 +57,8 @@ body,
 }
 
 .error {
-  margin: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 1rem;
-  border-radius: 20px;
   background: red;
   color: white;
-  box-shadow: 10px 10px 5px 0px rgba(15, 15, 15, 0.404);
 }
 p {
   margin-top: 10px;

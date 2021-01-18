@@ -68,8 +68,10 @@ const App = () => {
       )}
       {/* shows error if user entered invalid city */}
       {error && (
-        <div className="error">
-          <p>{error}</p>
+        <div className=" card ">
+          <div className="error">
+            <p>{error}</p>
+          </div>
         </div>
       )}
     </div>
